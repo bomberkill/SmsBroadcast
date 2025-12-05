@@ -1,50 +1,63 @@
-# Welcome to your Expo app 👋
+# App Documentation
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Overview
+Complete contacts and groups management app with SMS messaging integration.
 
-## Get started
+## Features
+- **Contacts**: Load from JSON, search, add/edit/delete, Google Sheets sync
+- **Groups**: Create groups, manage members, group details
+- **Group Chat**: Send messages via SMS to all group members
+- **Offline-First**: AsyncStorage persistence
+- **Beautiful UI**: Modern design with animations
 
-1. Install dependencies
+## Google Sheets Sync
+1. Create Google Sheet with columns: id, fullName, phoneNumber, profession, city, email, createdAt
+2. Publish to web or use Apps Script for JSON
+3. Paste URL in Contacts screen sync field
+4. Tap sync button - new contacts merge automatically
 
-   ```bash
-   npm install
-   ```
+## SMS Integration
+- Uses \`expo-sms\` - works in Expo Go
+- Opens native SMS app with recipients and message
+- User confirms sending manually (platform requirement)
+- For auto-send: requires custom native module + development build
 
-2. Start the app
+### Auto-Send SMS (Advanced)
+Not available in Expo Go. Requires:
+- Custom Android native module (Kotlin/Java)
+- SEND_SMS permission
+- iOS: Not possible due to Apple restrictions
+- Development build with EAS
 
-   ```bash
-   npx expo start
-   ```
+## Data Storage
+- Initial: \`assets/data/contacts.json\`
+- Runtime: AsyncStorage
+- Sync: Google Sheets API
 
-In the output, you'll find options to open the app in a
+## Tech Stack
+- Expo SDK 54 + React Native
+- TypeScript (strict mode)
+- Expo Router (file-based navigation)
+- React Query + Context API
+- AsyncStorage for persistence
+- expo-sms for messaging
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Project Structure
+- \`app/(tabs)/\`: Main tabs (Contacts, Groups)
+- \`app/*.tsx\`: Modal screens (add/edit)
+- \`contexts/\`: State management
+- \`types/\`: TypeScript definitions
+- \`constants/\`: Theme & colors
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Running
+\`\`\`bash
+npm install
+npm start
+\`\`\`
+Scan QR with Expo Go app
 
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Notes
+- SMS works on real devices (not simulators)
+- Google Sheets URL must be publicly accessible
+- All data persists locally
+- No backend required.

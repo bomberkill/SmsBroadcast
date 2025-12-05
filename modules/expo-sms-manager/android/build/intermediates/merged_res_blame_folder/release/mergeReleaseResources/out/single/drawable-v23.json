@@ -1,0 +1,6 @@
+[
+    {
+        "merged": "expo.modules.smsmanager.expo-sms-manager-release-28:/drawable-v23/abc_control_background_material.xml",
+        "source": "expo.modules.smsmanager.expo-sms-manager-appcompat-1.7.0-21:/drawable-v23/abc_control_background_material.xml"
+    }
+]

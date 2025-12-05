@@ -1,0 +1,34 @@
+{
+    "logs": [
+        {
+            "outputFile": "expo.modules.smsmanager.expo-sms-manager-release-28:/values-port/values-port.xml",
+            "map": [
+                {
+                    "source": "/home/ronald/.gradle/caches/8.14.3/transforms/da23eceb7539d6f8a683666756a8a72f/transformed/appcompat-1.7.0/res/values-port/values-port.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "55",
+                        "endOffsets": "106"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "expo.modules.smsmanager.expo-sms-manager-mergeReleaseResources-26:/values-port/values-port.xml",
+            "map": [
+                {
+                    "source": "/home/ronald/.gradle/caches/8.14.3/transforms/da23eceb7539d6f8a683666756a8a72f/transformed/appcompat-1.7.0/res/values-port/values-port.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "55",
+                        "endOffsets": "106"
+                    }
+                }
+            ]
+        }
+    ]
+}

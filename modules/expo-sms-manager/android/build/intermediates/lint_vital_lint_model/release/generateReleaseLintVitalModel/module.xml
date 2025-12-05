@@ -1,0 +1,18 @@
+<lint-module
+    format="1"
+    dir="/home/ronald/SmsBroadcast/modules/expo-sms-manager/android"
+    name=":expo-sms-manager"
+    type="LIBRARY"
+    maven="expo.modules.smsmanager:expo-sms-manager:0.7.6"
+    agpVersion="8.11.0"
+    buildFolder="build"
+    bootClassPath="/home/ronald/Android/Sdk/platforms/android-36/android.jar:/home/ronald/Android/Sdk/build-tools/35.0.0/core-lambda-stubs.jar"
+    javaSourceLevel="17"
+    compileTarget="android-36"
+    neverShrinking="true">
+  <lintOptions
+      absolutePaths="true"
+      checkReleaseBuilds="true"
+      explainIssues="true"/>
+  <variant name="release"/>
+</lint-module>
