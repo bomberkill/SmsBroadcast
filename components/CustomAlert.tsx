@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     lineHeight: 22,
   },
   buttonContainer: {
-    flexDirection: 'row-reverse', // To match native Alert order (OK on the right)
+    flexDirection: 'row', // To match native Alert order (OK on the right)
     flexWrap: 'wrap', // Allow buttons to wrap to the next line
     justifyContent: 'flex-end', // Align buttons to the right
     width: '100%',

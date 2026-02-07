@@ -26,6 +26,6 @@
       applicationId="expo.modules.smsmanager"
       generatedSourceFolders="build/generated/ap_generated_sources/release/out:build/generated/source/buildConfig/release"
       generatedResourceFolders="build/generated/res/resValues/release"
-      desugaredMethodsFiles="/home/ronald/.gradle/caches/8.14.3/transforms/d0f6612fd876c409da04ca3158ce99c7/transformed/D8BackportedDesugaredMethods.txt">
+      desugaredMethodsFiles="/home/ronald/.gradle/caches/8.14.3/transforms/7318b3c805875094ffba18db71f1acb0/transformed/D8BackportedDesugaredMethods.txt">
   </artifact>
 </variant>

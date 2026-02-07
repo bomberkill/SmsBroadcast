@@ -1,0 +1,403 @@
+{
+  "tabs": {
+    "contacts": "Contacts",
+    "groups": "Groups",
+    "schemas": "Templates",
+    "account": "Account"
+  },
+  "account": {
+    "title": "Account",
+    "unauthenticated": {
+      "title": "Backup your data",
+      "subtitle": "Create an account to securely save your contacts, groups, and message history.",
+      "login": "Login",
+      "signup": "Sign Up",
+      "password": "Password",
+      "displayName": "Display Name",
+      "noAccount": "Don't have an account?",
+      "haveAccount": "Already have an account?",
+      "fillAllFields": "Please fill in all fields",
+      "loginError": "Login failed. Please check your credentials.",
+      "signupError": "Signup failed. Please try again.",
+      "benefits": {
+        "backup": "Cloud Backup & Restore",
+        "stats": "Advanced Usage Statistics",
+        "sync": "Sync across multiple devices"
+      }
+    },
+    "profile": {
+      "title": "Profile",
+      "email": "Email",
+      "memberSince": "Member since",
+      "lastSync": "Last synchronization: {{date}}",
+      "neverSync": "Never synchronized"
+    },
+    "actions": {
+      "backupNow": "Backup Now",
+      "restoreData": "Restore Data",
+      "logout": "Logout",
+      "deleteAccount": "Delete Account",
+      "deleteConfirm": "Are you sure you want to delete your account? This will also delete all your cloud backups.",
+      "backupSuccess": "Data backed up successfully!",
+      "backupError": "Failed to backup data.",
+      "restoreSuccess": "Data restored successfully!",
+      "restoreError": "Failed to restore data.",
+      "scheduleError": "Could not schedule message",
+      "futureDateError": "Scheduled date must be in the future",
+      "deleteScheduledConfirm": "Do you want to delete this scheduled message?"
+    },
+    "stats": {
+      "title": "Statistics",
+      "totalSent": "Total SMS Sent",
+      "sentThisMonth": "Sent this month",
+      "sentToday": "Sent today",
+      "groupStats": "SMS by Group"
+    },
+    "settings": {
+      "autoBackup": "Auto-backup",
+      "autoBackupDesc": "Automatically backup data every 24h"
+    }
+  },
+  "contactsScreen": {
+    "searchPlaceholder": "Search contacts...",
+    "googleSheetPlaceholder": "Google Sheets URL (optional)",
+    "syncErrorTitle": "Error",
+    "syncErrorUrl": "Please enter a Google Sheets URL",
+    "syncSuccessTitle": "Success",
+    "syncSuccessMessage": "Contacts synced successfully!",
+    "syncFailedMessage": "Failed to sync contacts. Please check the URL and try again.",
+    "previous": "Previous",
+    "next": "Next",
+    "pagination": "Page {{page}} of {{totalPages}}",
+    "emptyTitle": "No Contacts Found",
+    "emptySearch": "Try a different search term",
+    "emptyDefault": "Add your first contact to get started",
+    "deleteConfirmTitle": "Delete Contact",
+    "deleteConfirmMessage": "Are you sure you want to delete this contact from the list?"
+  },
+  "groupsScreen": {
+    "member": "member",
+    "members": "members",
+    "emptyTitle": "No Groups Yet",
+    "emptyText": "Create your first group to start messaging multiple contacts at once",
+    "basedOnList": "Based on list: {{listName}}",
+    "lastMessage": "Last message:",
+    "scheduledBadge": "Scheduled"
+  },
+  "schemasScreen": {
+    "title": "Contact Templates",
+    "fieldCount": "{{count}} fields",
+    "emptyTitle": "No Templates Yet",
+    "emptyText": "Create your first template to start importing contacts."
+  },
+  "createSchema": {
+    "createTitle": "Create Template",
+    "editTitle": "Edit Template",
+    "schemaNameLabel": "Template Name",
+    "schemaNamePlaceholder": "e.g., Prospects Auto Show 2024",
+    "fieldsHeader": "Contact Fields",
+    "fieldNamePlaceholder": "Field name {{index}}",
+    "typeLabel": "Type",
+    "selectFieldType": "Select a Field Type",
+    "optionsLabel": "Options (comma-separated)",
+    "optionsPlaceholder": "e.g., Option 1, Option 2",
+    "displayNameLabel": "Display Name",
+    "primaryPhoneLabel": "Primary Phone",
+    "addFieldButton": "Add Field",
+    "cannotChangeSpecialFieldType": "The type of a primary phone or display name field cannot be changed.",
+    "createSuccess": "Template created successfully!",
+    "updateSuccess": "Template updated successfully!",
+    "validation": {
+      "name": "Please provide a name for your template.",
+      "fieldName": "All fields must have a name.",
+      "primaryPhone": "One field must be marked as the primary phone number.",
+      "displayName": "One field must be marked as the display name."
+    }
+  },
+  "importContactsScreen": {
+    "title": "Import Contacts",
+    "listNameLabel": "New List Name",
+    "listNamePlaceholder": "e.g., VIP Clients January",
+    "schemaLabel": "Contact Template to use",
+    "schemaPlaceholder": "Select a template...",
+    "selectSchemaTitle": "Select a Template",
+    "fileLabel": "Source File",
+    "filePlaceholder": "Choose a file (CSV, XLS, XLSX)",
+    "selectedFileLabel": "Selected file",
+    "filePickerError": "An error occurred while picking the file.",
+    "createButton": "Create List",
+    "createSuccess": "Success! List \"{{listName}}\" created with {{count}} contacts.",
+    "extractionInProgress": "Analyzing your file... This may take a moment.",
+    "noContactsFound": "No valid contacts were found in the file according to the selected template.",
+    "createError": "An error occurred while creating the list.",
+    "validation": {
+      "listName": "Please provide a name for your list.",
+      "schema": "Please select a contact template.",
+      "file": "Please select a file to import.",
+      "noInternet": "No internet connection. Please check your connection and try again."
+    }
+  },
+  "extractionPreview": {
+    "title": "Extraction Preview",
+    "subHeader": {
+      "one": "1 contact was found. Please review before saving.",
+      "other": "{{count}} contacts were found. Please review before saving."
+    },
+    "saveButton": "Save List"
+  },
+  "contactList": {
+    "contactCount": {
+      "one": "1 contact",
+      "other": "{{count}} contacts"
+    },
+    "addContact": "Add Contact",
+    "editTitle": "Edit List",
+    "notFound": "Contact list not found.",
+    "emptyTitle": "No Contact Lists Yet",
+    "emptyText": "Create your first contact list to start.",
+    "deleteConfirmTitle": "Delete List",
+    "deleteConfirmMessage": "Are you sure you want to delete the list \"{{listName}}\"? This cannot be undone."
+  },
+  "common": {
+    "cancel": "Cancel",
+    "save": "Save",
+    "create": "Create",
+    "delete": "Delete",
+    "edit": "Edit",
+    "error": "Error",
+    "success": "Success",
+    "info": "Info",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "required": "*",
+    "page": "Page {{page}} of {{totalPages}}",
+    "pending": "Pending",
+    "sent": "Sent",
+    "delivered": "Delivered",
+    "failed": "Failed",
+    "scheduled": "Scheduled",
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "now": "Now",
+    "settings": "Settings",
+    "message": "Message",
+    "retry": "Retry",
+    "sending": "Sending...",
+    "confirm": "Confirm"
+  },
+  "date": {
+    "inDays": "In {{count}}d",
+    "inHours": "In {{count}}h",
+    "inMinutes": "In {{count}} min",
+    "inSeconds": "In {{count}}s"
+  },
+  "messageDetails": {
+    "title": "Message Details",
+    "successRate": "Success rate: {{rate}}% ({{sent}}/{{total}} recipients)",
+    "sentViaGroup": "Sent via {{groupName}}"
+  },
+  "smsErrors": {
+    "GENERIC_FAILURE": "Generic failure",
+    "NO_SERVICE": "No service",
+    "NULL_PDU": "Null PDU",
+    "RADIO_OFF": "Radio off",
+    "LIMIT_EXCEEDED": "SMS limit exceeded",
+    "FDN_CHECK_FAILURE": "FDN check failure",
+    "UNKNOWN": "Unknown error",
+    "UNKNOWN_ERROR": "Unknown error ({{code}})"
+  },
+  "modals": {
+    "addContact": "Add Contact",
+    "editContact": "Edit Contact",
+    "createGroup": "Create Group",
+    "editGroup": "Edit Group",
+    "groupChat": "Group Chat"
+  },
+  "contactForm": {
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "John Doe",
+    "phoneNumber": "Phone Number",
+    "phoneNumberPlaceholder": "+1234567890",
+    "profession": "Profession",
+    "professionPlaceholder": "Software Engineer",
+    "city": "City",
+    "cityPlaceholder": "San Francisco",
+    "email": "Email",
+    "emailPlaceholder": "john.doe@email.com",
+    "gender": "Gender",
+    "genderPlaceholder": "Male / Female",
+    "country": "Country",
+    "countryPlaceholder": "Country",
+    "region": "Region",
+    "regionPlaceholder": "Region",
+    "healthDistrict": "Health District",
+    "healthDistrictPlaceholder": "Health District",
+    "status": "Status",
+    "statusPlaceholder": "e.g., Professional, Student",
+    "specialty": "TMS / Other Specialty",
+    "specialtyPlaceholder": "Specialty",
+    "addSuccess": "Contact added successfully!",
+    "updateSuccess": "Contact updated successfully!",
+    "validationError": "Please fill in at least the name and phone number",
+    "contactNotFound": "Contact not found",
+    "deleteConfirmTitle": "Delete Contact",
+    "deleteConfirmMessage": "Are you sure you want to delete this contact?",
+    "deleteButton": "Delete Contact",
+    "selectOption": "Select an option...",
+    "selectOptionFor": "Select for {{fieldName}}"
+  },
+  "groupForm": {
+    "groupName": "Group Name",
+    "groupNamePlaceholder": "Team Project, Family, etc.",
+    "selectMembers": "Select Members",
+    "member": "{{count}} member selected",
+    "members": "{{count}} members selected",
+    "searchPlaceholder": "Search contacts to add...",
+    "noContactsFound": "No contacts found.",
+    "createSuccess": "Group created successfully!",
+    "updateSuccess": "Group updated successfully!",
+    "validationNameError": "Please enter a group name",
+    "validationMemberError": "Please select at least one member",
+    "groupNotFound": "Group not found",
+    "selectList": "Base Contact List",
+    "selectListPlaceholder": "Select a contact list...",
+    "selectListTitle": "Select a Contact List",
+    "validationListError": "Please select a contact list",
+    "basedOnList": "Based on list",
+    "selectListFirst": "Please select a contact list first to see members.",
+    "deleteConfirmTitle": "Delete Group",
+    "deleteConfirmMessage": "Are you sure you want to delete this group?",
+    "deleteButton": "Delete Group",
+    "selectAll": "Select All",
+    "deselectAll": "Deselect All"
+  },
+  "groupChat": {
+    "groupNotFound": "Group not found",
+    "simSelectTitle": "Choose a SIM card",
+    "simSelectMessage": "Which SIM card do you want to use?",
+    "simCard": "SIM {{index}}",
+    "exactAlarmPermissionTitle": "Scheduling Restricted",
+    "exactAlarmPermissionMessage": "The app needs permission to schedule exact alarms to send messages at a specific time. Would you like to open settings?",
+    "permissionTitle": "Permission to send SMS",
+    "permissionMessage": "This app needs permission to send SMS messages automatically.",
+    "smsError": "Please enter a message",
+    "permissionDenied": "Cannot send SMS without permission.",
+    "notificationPermissionDenied": "Notification permission denied. The reminder will not work.",
+    "sendSuccess": "SMS has been queued for sending.",
+    "sendCancelled": "SMS sending was cancelled by the user.",
+    "sendFailed": "An unknown error occurred while sending SMS.",
+    "sendError": "An unexpected error occurred.",
+    "scheduleError": "Error while scheduling. The message could not be planned.",
+    "members": "{{count}} members",
+    "member": "{{count}} member",
+    "emptyTitle": "No Messages Yet",
+    "emptyText": "Send your first message to this group. It will be sent via SMS to all members.",
+    "inputPlaceholder": "Type a message...",
+    "noValidNumbers": "No valid phone numbers found in this group.",
+    "scheduledMessages": "Scheduled Messages"
+  },
+  "premium": {
+    "title": "Unlock Premium",
+    "subtitle": "Get more power and reach your audience effectively.",
+    "subscribe": "Subscribe Now",
+    "cancelAnytime": "Cancel anytime in your store settings.",
+    "tryPremium": "Try Premium",
+    "currentPlan": "Your Current Plan",
+    "free": "Free Plan",
+    "premium": "Premium Plan",
+    "pro": "Pro / Business Plan",
+    "currentPlanLabel": "Current Plan: {{plan}}",
+    "limitReachedTitle": "Limit Reached",
+    "groupLimitReached": "You have reached the maximum number of groups for your plan. Upgrade to create more.",
+    "smsLimitReached": "You have reached your SMS limit. Upgrade to send more messages.",
+    "checkout": {
+      "title": "Checkout",
+      "selectPayment": "Select Payment Method",
+      "bankTransfer": "Bank Transfer",
+      "mobileMoney": "Mobile Money",
+      "mtnMoney": "MTN Mobile Money",
+      "orangeMoney": "Orange Money",
+      "instructions": "Follow the instructions to complete your payment.",
+      "bankInstructions": "Please transfer the amount to the following bank account:",
+      "accountNumber": "Account Number",
+      "bankName": "Bank Name",
+      "accountHolder": "Account Holder",
+      "bankNameValue": "UBA Cameroon",
+      "accountNumberValue": "123-45678-901234",
+      "accountHolderValue": "SMS BROADCAST APP",
+      "mobileInstructions": "Enter your phone number to receive the payment prompt:",
+      "phoneNumber": "Phone Number",
+      "phoneNumberPlaceholder": "670 123 456",
+      "payNow": "Pay Now",
+      "verifying": "Verifying payment...",
+      "success": "Subscription successful!",
+      "successSubtitle": "Welcome to {{plan}}!",
+      "error": "Payment failed. Please try again.",
+      "plan": "Plan",
+      "amount": "Amount"
+    },
+    "plans": {
+      "free": {
+        "name": "Free",
+        "price": "$0",
+        "features": [
+          "1 Group limit",
+          "200 SMS total",
+          "Basic stats",
+          "Ads enabled"
+        ]
+      },
+      "premium": {
+        "name": "Premium",
+        "price": "$5.00",
+        "period": "/mo",
+        "popular": "POPULAR",
+        "features": [
+          "5 Groups limit",
+          "1000 SMS / month",
+          "Automatic Backup",
+          "No Ads"
+        ]
+      },
+      "pro": {
+        "name": "Pro / Business",
+        "price": "$14.99",
+        "period": "/mo",
+        "features": [
+          "Unlimited Groups",
+          "Unlimited SMS",
+          "Advanced Analytics",
+          "Priority Support"
+        ]
+      }
+    },
+    "ads": {
+      "sponsored": "Sponsored",
+      "title": "Boost your reach with Pro",
+      "subtitle": "Unlock unlimited groups and messages. No more ads.",
+      "upgrade": "UPGRADE"
+    }
+  },
+  "onboarding": {
+    "skip": "Skip",
+    "next": "Next",
+    "getStarted": "Get Started",
+    "slide1": {
+      "title": "Send SMS in Bulk",
+      "description": "Reach thousands of contacts instantly with personalized bulk SMS campaigns"
+    },
+    "slide2": {
+      "title": "Organize Your Contacts",
+      "description": "Create custom groups and templates to manage your audience efficiently"
+    },
+    "slide3": {
+      "title": "Offline-First & Secure",
+      "description": "Work offline anytime. Your data syncs automatically when you're back online"
+    },
+    "slide4": {
+      "title": "Powerful Analytics",
+      "description": "Track delivery status and engagement with real-time insights"
+    }
+  }
+}

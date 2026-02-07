@@ -4,4 +4,13 @@
 
     <uses-sdk android:minSdkVersion="24" />
 
+    <application>
+        <receiver
+            android:name="expo.modules.smsmanager.SmsSchedulerReceiver"
+            android:exported="false" />
+        <receiver
+            android:name="expo.modules.smsmanager.SmsReminderReceiver"
+            android:exported="false" />
+    </application>
+
 </manifest>

@@ -1,88 +1,196 @@
+import AdPlaceholder from '@/components/AdPlaceholder';
+import ContactActionModal from '@/components/ContactActionModal';
 import colors from '@/constants/colors';
+import { useAlert } from '@/contexts/AlertContext';
+import { useContactLists } from '@/contexts/ContactListContext';
+import { useContactSchemas } from '@/contexts/ContactSchemaContext';
 import { useContacts } from '@/contexts/ContactsContext';
 import { useGroups } from '@/contexts/GroupsContext';
+import { useMessages } from '@/contexts/MessagesContext';
+import { useMonetization } from '@/contexts/MonetizationContext';
+import { getDateLabel } from '@/libs/date';
+import i18n from '@/libs/i18n';
+import { Group, Message } from '@/types';
 import { useRouter } from 'expo-router';
-import { ChevronRight, Plus, Users } from 'lucide-react-native';
-import React from 'react';
-import { Animated, FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { CalendarClock, MoreVertical, Plus, Users } from 'lucide-react-native';
+import React, { useMemo, useState } from 'react';
+import { ActivityIndicator, FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function GroupsScreen() {
   const router = useRouter();
-  const { groups } = useGroups();
+  const { groups, isLoading, deleteGroup } = useGroups();
+  const { contactLists } = useContactLists();
+  const { showAlert } = useAlert();
   const { contacts } = useContacts();
-  const scaleAnim = React.useRef(new Animated.Value(1)).current;
+  const { getSchemaById } = useContactSchemas();
+  const { messages } = useMessages();
+  const { limits, canCreateGroup } = useMonetization();
 
-  const handlePressIn = () => {
-    Animated.spring(scaleAnim, {
-      toValue: 0.95,
-      useNativeDriver: true,
-    }).start();
+  const [isMenuVisible, setIsMenuVisible] = useState(false);
+  const [selectedGroup, setSelectedGroup] = useState<Group | null>(null);
+
+  const sortedGroups = useMemo(() => {
+    return [...groups].sort((a, b) => {
+      const msgsA = messages.filter((m: Message) => m.groupId === a.id);
+      const msgsB = messages.filter((m: Message) => m.groupId === b.id);
+
+      const lastA = msgsA.length > 0 ? new Date(msgsA[msgsA.length - 1].timestamp).getTime() : 0;
+      const lastB = msgsB.length > 0 ? new Date(msgsB[msgsB.length - 1].timestamp).getTime() : 0;
+
+      return lastB - lastA; // Recents first
+    });
+  }, [groups, messages]);
+
+  const handleDeleteGroup = (group: Group) => {
+    showAlert(
+      i18n.t('groupForm.deleteConfirmTitle'),
+      i18n.t('groupForm.deleteConfirmMessage'),
+      [
+        { text: i18n.t('common.cancel'), style: 'cancel' },
+        {
+          text: i18n.t('common.delete'),
+          style: 'destructive',
+          onPress: () => deleteGroup(group.id),
+        },
+      ],
+      'error'
+    );
   };
 
-  const handlePressOut = () => {
-    Animated.spring(scaleAnim, {
-      toValue: 1,
-      useNativeDriver: true,
-    }).start();
-  };
+  const renderGroupItem = ({ item }: { item: Group }) => {
+    const contactList = contactLists.find(cl => cl.id === item.contactListId);
+    const schema = contactList ? getSchemaById(contactList.contactSchemaId) : undefined;
+    const displayNameFieldId = schema?.fields.find(f => f.isDisplayName)?.id;
 
-  const renderGroupItem = ({ item }: { item: typeof groups[0] }) => {
-    const memberNames = item.members
+    const memberNames = item.memberIds
       .map((memberId) => {
-        const contact = contacts.find((c) => c.id === memberId);
-        return contact?.fullName || 'Unknown';
+        const contact = contacts[memberId];
+        if (contact && displayNameFieldId) {
+          return contact.data[displayNameFieldId] || 'Unknown';
+        }
+        return null;
       })
+      .filter(Boolean)
+      .slice(0, 3) // Show max 3 names
       .join(', ');
+
+    const groupMessages = messages.filter((m: Message) => m.groupId === item.id);
+    const lastMessage = groupMessages.length > 0 ? groupMessages[groupMessages.length - 1] : null;
 
     return (
       <TouchableOpacity
-        style={styles.groupCard}
+        style={styles.itemContainer}
         onPress={() => router.push(`/group-chat/${item.id}` as any)}
         activeOpacity={0.7}
       >
-        <View style={styles.groupIcon}>
-          <Users size={24} color={colors.primary} />
+        <Users size={24} color={colors.primary} />
+        <View style={styles.itemTextContainer}>
+          <View style={styles.headerRow}>
+            <Text style={styles.groupName} numberOfLines={1}>{item.groupName}</Text>
+            {lastMessage && (
+              <Text style={styles.lastMessageDate}>
+                {getDateLabel(new Date(lastMessage.timestamp))}
+              </Text>
+            )}
+          </View>
+
+          <View style={styles.bottomRow}>
+            <View style={{ flex: 1 }}>
+              {lastMessage ? (
+                <Text style={styles.lastMessageText} numberOfLines={1}>
+                  {lastMessage.message}
+                </Text>
+              ) : (
+                <Text style={styles.groupMembers} numberOfLines={1}>
+                  {item.memberIds.length} {item.memberIds.length === 1 ? i18n.t('groupsScreen.member') : i18n.t('groupsScreen.members')}
+                  {memberNames ? ` · ${memberNames}` : ''}
+                </Text>
+              )}
+            </View>
+
+            {lastMessage?.status === 'scheduled' && (
+              <View style={styles.scheduledBadge}>
+                <CalendarClock size={10} color={colors.primary} style={{ marginRight: 4 }} />
+                <Text style={styles.scheduledBadgeText}>{i18n.t('groupsScreen.scheduledBadge')}</Text>
+              </View>
+            )}
+
+            <TouchableOpacity
+              onPress={() => {
+                setSelectedGroup(item);
+                setIsMenuVisible(true);
+              }}
+              style={styles.actionButton}
+            >
+              <MoreVertical size={20} color={colors.textSecondary} />
+            </TouchableOpacity>
+          </View>
         </View>
-        <View style={styles.groupInfo}>
-          <Text style={styles.groupName}>{item.groupName}</Text>
-          <Text style={styles.groupMembers} numberOfLines={1}>
-            {item.members.length} {item.members.length === 1 ? 'member' : 'members'}
-            {memberNames ? ` · ${memberNames}` : ''}
-          </Text>
-        </View>
-        <ChevronRight size={20} color={colors.textSecondary} />
       </TouchableOpacity>
     );
   };
 
+  if (isLoading) {
+    return (
+      <View style={[styles.container, styles.centered]}>
+        <ActivityIndicator size="large" color={colors.primary} />
+      </View>
+    );
+  }
+
   return (
     <View style={styles.container}>
       <FlatList
-        data={groups}
+        data={sortedGroups}
         renderItem={renderGroupItem}
         keyExtractor={(item) => item.id}
         contentContainerStyle={styles.listContent}
+        ListFooterComponent={<AdPlaceholder />}
         ListEmptyComponent={
           <View style={styles.emptyContainer}>
             <Users size={64} color={colors.textTertiary} />
-            <Text style={styles.emptyTitle}>No Groups Yet</Text>
-            <Text style={styles.emptyText}>
-              Create your first group to start messaging multiple contacts at once
-            </Text>
+            <Text style={styles.emptyTitle}>{i18n.t('groupsScreen.emptyTitle')}</Text>
+            <Text style={styles.emptyText}>{i18n.t('groupsScreen.emptyText')}</Text>
+            <AdPlaceholder />
           </View>
         }
       />
-      <Animated.View style={{ transform: [{ scale: scaleAnim }] }}>
-        <TouchableOpacity
-          style={styles.fab}
-          onPress={() => router.push('/create-group' as any)}
-          onPressIn={handlePressIn}
-          onPressOut={handlePressOut}
-          activeOpacity={0.9}
-        >
-          <Plus size={28} color="#FFFFFF" />
-        </TouchableOpacity>
-      </Animated.View>
+      <TouchableOpacity
+        style={styles.fab}
+        onPress={() => {
+          if (!canCreateGroup(groups.length)) {
+            showAlert(
+              i18n.t('premium.limitReachedTitle'),
+              i18n.t('premium.groupLimitReached'),
+              [
+                { text: i18n.t('common.cancel'), style: 'cancel' },
+                { text: i18n.t('premium.subscribe'), onPress: () => router.push('/premium' as any) }
+              ],
+              'info'
+            );
+            return;
+          }
+          router.push('/create-group' as any);
+        }}
+        activeOpacity={0.8}
+      >
+        <Plus size={28} color="#FFFFFF" />
+      </TouchableOpacity>
+      <ContactActionModal
+        isVisible={isMenuVisible}
+        contactName={selectedGroup?.groupName}
+        onClose={() => setIsMenuVisible(false)}
+        onEdit={() => {
+          if (selectedGroup) {
+            router.push(`/edit-group/${selectedGroup.id}` as any);
+          }
+        }}
+        onDelete={() => {
+          if (selectedGroup) {
+            handleDeleteGroup(selectedGroup);
+          }
+        }}
+      />
     </View>
   );
 }
@@ -90,47 +198,70 @@ export default function GroupsScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.backgroundSecondary,
+    backgroundColor: colors.background,
   },
+  centered: { justifyContent: 'center', alignItems: 'center' },
   listContent: {
     padding: 16,
     paddingBottom: 100,
   },
-  groupCard: {
+  itemContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: colors.cardBackground,
-    borderRadius: 12,
-    padding: 16,
-    marginBottom: 12,
-    shadowColor: colors.cardShadow,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-    elevation: 2,
-  },
-  groupIcon: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
     backgroundColor: colors.backgroundSecondary,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginRight: 12,
+    padding: 16,
+    borderRadius: 12,
+    marginBottom: 12,
   },
-  groupInfo: {
-    flex: 1,
+  itemTextContainer: { marginLeft: 16, flex: 1 },
+  headerRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  bottomRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: 4,
   },
   groupName: {
-    fontSize: 17,
+    fontSize: 16,
     fontWeight: '600' as const,
     color: colors.text,
-    marginBottom: 4,
+    flex: 1,
+    marginRight: 8,
+  },
+  lastMessageDate: {
+    fontSize: 12,
+    color: colors.textSecondary,
+  },
+  lastMessageText: {
+    fontSize: 14,
+    color: colors.textSecondary,
   },
   groupMembers: {
     fontSize: 14,
     color: colors.textSecondary,
   },
+  scheduledBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: colors.backgroundTertiary,
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    borderRadius: 6,
+    marginLeft: 8,
+    borderWidth: 1,
+    borderColor: colors.borderLight,
+  },
+  scheduledBadgeText: {
+    fontSize: 10,
+    fontWeight: '600',
+    color: colors.primary,
+  },
+  actionsContainer: { flexDirection: 'row' },
+  actionButton: { paddingLeft: 8, paddingVertical: 4 },
   emptyContainer: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -152,18 +283,18 @@ const styles = StyleSheet.create({
   },
   fab: {
     position: 'absolute',
-    right: 20,
-    bottom: 20,
+    right: 16,
+    bottom: 16,
     width: 56,
     height: 56,
     borderRadius: 28,
     backgroundColor: colors.primary,
     alignItems: 'center',
     justifyContent: 'center',
+    elevation: 4,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
-    elevation: 8,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
   },
 });

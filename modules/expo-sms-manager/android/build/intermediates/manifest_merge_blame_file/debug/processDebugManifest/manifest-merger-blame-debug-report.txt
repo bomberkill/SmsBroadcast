@@ -4,4 +4,20 @@
 4
 5    <uses-sdk android:minSdkVersion="24" />
 6
-7</manifest>
+7    <application>
+7-->/home/ronald/SmsBroadcast/modules/expo-sms-manager/android/src/main/AndroidManifest.xml:2:5-5:19
+8        <receiver
+8-->/home/ronald/SmsBroadcast/modules/expo-sms-manager/android/src/main/AndroidManifest.xml:3:9-83
+9            android:name="expo.modules.smsmanager.SmsSchedulerReceiver"
+9-->/home/ronald/SmsBroadcast/modules/expo-sms-manager/android/src/main/AndroidManifest.xml:3:19-55
+10            android:exported="false" />
+10-->/home/ronald/SmsBroadcast/modules/expo-sms-manager/android/src/main/AndroidManifest.xml:3:56-80
+11        <receiver
+11-->/home/ronald/SmsBroadcast/modules/expo-sms-manager/android/src/main/AndroidManifest.xml:4:9-82
+12            android:name="expo.modules.smsmanager.SmsReminderReceiver"
+12-->/home/ronald/SmsBroadcast/modules/expo-sms-manager/android/src/main/AndroidManifest.xml:4:19-54
+13            android:exported="false" />
+13-->/home/ronald/SmsBroadcast/modules/expo-sms-manager/android/src/main/AndroidManifest.xml:4:55-79
+14    </application>
+15
+16</manifest>

@@ -1,2 +1,4 @@
 R_DEF: Internal format may change without notice
 local
+string notification_reminder_text
+string notification_reminder_title
