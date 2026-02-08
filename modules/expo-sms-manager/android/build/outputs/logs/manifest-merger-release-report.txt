@@ -1,9 +1,25 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/ronald/SmsBroadcast/modules/expo-sms-manager/android/src/main/AndroidManifest.xml:1:1-2:12
-INJECTED from /home/ronald/SmsBroadcast/modules/expo-sms-manager/android/src/main/AndroidManifest.xml:1:1-2:12
+ADDED from /home/ronald/SmsBroadcast/modules/expo-sms-manager/android/src/main/AndroidManifest.xml:1:1-6:12
+INJECTED from /home/ronald/SmsBroadcast/modules/expo-sms-manager/android/src/main/AndroidManifest.xml:1:1-6:12
 	package
 		INJECTED from /home/ronald/SmsBroadcast/modules/expo-sms-manager/android/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/ronald/SmsBroadcast/modules/expo-sms-manager/android/src/main/AndroidManifest.xml:1:11-69
+application
+ADDED from /home/ronald/SmsBroadcast/modules/expo-sms-manager/android/src/main/AndroidManifest.xml:2:5-5:19
+receiver#expo.modules.smsmanager.SmsSchedulerReceiver
+ADDED from /home/ronald/SmsBroadcast/modules/expo-sms-manager/android/src/main/AndroidManifest.xml:3:9-83
+	android:exported
+		ADDED from /home/ronald/SmsBroadcast/modules/expo-sms-manager/android/src/main/AndroidManifest.xml:3:56-80
+	android:name
+		ADDED from /home/ronald/SmsBroadcast/modules/expo-sms-manager/android/src/main/AndroidManifest.xml:3:19-55
+receiver#expo.modules.smsmanager.SmsReminderReceiver
+ADDED from /home/ronald/SmsBroadcast/modules/expo-sms-manager/android/src/main/AndroidManifest.xml:4:9-82
+	android:exported
+		ADDED from /home/ronald/SmsBroadcast/modules/expo-sms-manager/android/src/main/AndroidManifest.xml:4:55-79
+	android:name
+		ADDED from /home/ronald/SmsBroadcast/modules/expo-sms-manager/android/src/main/AndroidManifest.xml:4:19-54
 uses-sdk
 INJECTED from /home/ronald/SmsBroadcast/modules/expo-sms-manager/android/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/ronald/SmsBroadcast/modules/expo-sms-manager/android/src/main/AndroidManifest.xml

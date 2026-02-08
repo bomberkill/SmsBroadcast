@@ -1,0 +1,2 @@
+int string notification_reminder_text 0x0
+int string notification_reminder_title 0x0

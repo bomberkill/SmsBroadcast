@@ -3,8 +3,9 @@ import createContextHook from '@nkzw/create-context-hook';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
-const STORAGE_KEY = 'groups_storage';
+export const STORAGE_KEY = 'groups_storage';
 
 export const [GroupsProvider, useGroups] = createContextHook(() => {
   const [groups, setGroups] = useState<Group[]>([]);
@@ -42,13 +43,14 @@ export const [GroupsProvider, useGroups] = createContextHook(() => {
   });
   const { mutate: saveGroups } = saveGroupsMutation;
 
-  const addGroup = useCallback((group: Omit<Group, 'id' | 'createdAt' | 'updatedAt'>) => {
+  const addGroup = useCallback((group: Omit<Group, 'id' | 'createdAt' | 'updatedAt' | 'synced'>) => {
     const now = new Date().toISOString();
     const newGroup: Group = {
       ...group,
-      id: Date.now().toString(),
+      id: uuidv4(),
       createdAt: now,
       updatedAt: now,
+      synced: false,
     };
     const updatedGroups = [...groups, newGroup];
     saveGroups(updatedGroups);
@@ -56,7 +58,7 @@ export const [GroupsProvider, useGroups] = createContextHook(() => {
 
   const updateGroup = useCallback((id: string, updates: Partial<Group>) => {
     const updatedGroups = groups.map((g) =>
-      g.id === id ? { ...g, ...updates, updatedAt: new Date().toISOString() } : g
+      g.id === id ? { ...g, ...updates, updatedAt: new Date().toISOString(), synced: false } : g
     );
     saveGroups(updatedGroups);
   }, [groups, saveGroups]);
@@ -72,10 +74,11 @@ export const [GroupsProvider, useGroups] = createContextHook(() => {
 
   return useMemo(() => ({
     groups,
+    setGroups,
     addGroup,
     updateGroup,
     deleteGroup,
     getGroupById,
     isLoading: loadGroupsQuery.isLoading,
-  }), [groups, addGroup, updateGroup, deleteGroup, getGroupById, loadGroupsQuery.isLoading]);
+  }), [groups, setGroups, addGroup, updateGroup, deleteGroup, getGroupById, loadGroupsQuery.isLoading]);
 });

@@ -1,0 +1,4 @@
+<resources>
+  <string name="notification_reminder_title">Message almost ready!</string>
+  <string name="notification_reminder_text">Your scheduled message will be sent in 30 seconds.</string>
+</resources>

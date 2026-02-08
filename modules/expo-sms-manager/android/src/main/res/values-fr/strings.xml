@@ -1,0 +1,4 @@
+<resources>
+  <string name="notification_reminder_title">Message presque prêt !</string>
+  <string name="notification_reminder_text">Votre message planifié sera envoyé dans 30 secondes.</string>
+</resources>

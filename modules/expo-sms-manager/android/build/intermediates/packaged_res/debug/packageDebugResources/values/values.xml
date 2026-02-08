@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="notification_reminder_text">Your scheduled message will be sent in 30 seconds.</string>
+    <string name="notification_reminder_title">Message almost ready!</string>
+</resources>

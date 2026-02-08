@@ -1,0 +1,382 @@
+{
+  "tabs": {
+    "contacts": "Contacts",
+    "groups": "Groupes",
+    "schemas": "Modèles",
+    "account": "Compte"
+  },
+  "account": {
+    "title": "Compte",
+    "unauthenticated": {
+      "title": "Sauvegardez vos données",
+      "subtitle": "Créez un compte pour sauvegarder vos contacts, groupes et historique en toute sécurité.",
+      "login": "Connexion",
+      "signup": "S'inscrire",
+      "password": "Mot de passe",
+      "displayName": "Nom d'affichage",
+      "noAccount": "Vous n'avez pas de compte ?",
+      "haveAccount": "Vous avez déjà un compte ?",
+      "fillAllFields": "Veuillez remplir tous les champs",
+      "loginError": "Échec de la connexion. Veuillez vérifier vos identifiants.",
+      "signupError": "Échec de l'inscription. Veuillez réessayer.",
+      "benefits": {
+        "backup": "Sauvegarde & Restauration Cloud",
+        "stats": "Statistiques d'utilisation avancées",
+        "sync": "Synchro sur plusieurs appareils"
+      }
+    },
+    "profile": {
+      "title": "Profil",
+      "email": "Email",
+      "memberSince": "Membre depuis",
+      "lastSync": "Dernière synchronisation : {{date}}",
+      "neverSync": "Jamais synchronisé"
+    },
+    "actions": {
+      "backupNow": "Sauvegarder maintenant",
+      "restoreData": "Restaurer les données",
+      "logout": "Déconnexion",
+      "deleteAccount": "Supprimer le compte",
+      "deleteConfirm": "Êtes-vous sûr de vouloir supprimer votre compte ? Cela supprimera également toutes vos sauvegardes sur le cloud.",
+      "backupSuccess": "Données sauvegardées avec succès !",
+      "backupError": "Échec de la sauvegarde des données.",
+      "restoreSuccess": "Données restaurées avec succès !",
+      "restoreError": "Échec de la restauration des données."
+    },
+    "stats": {
+      "title": "Statistiques",
+      "totalSent": "Total SMS envoyés",
+      "sentThisMonth": "Envoyés ce mois",
+      "sentToday": "Envoyés aujourd'hui",
+      "groupStats": "SMS par groupe"
+    },
+    "settings": {
+      "autoBackup": "Sauvegarde auto",
+      "autoBackupDesc": "Sauvegarde auto toutes les 24h"
+    }
+  },
+  "contactsScreen": {
+    "searchPlaceholder": "Rechercher des contacts...",
+    "googleSheetPlaceholder": "URL Google Sheets (optionnel)",
+    "syncErrorTitle": "Erreur",
+    "syncErrorUrl": "Veuillez entrer une URL Google Sheets",
+    "syncSuccessTitle": "Succès",
+    "syncSuccessMessage": "Contacts synchronisés avec succès !",
+    "syncFailedMessage": "Échec de la synchronisation. Vérifiez l'URL et réessayez.",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "pagination": "Page {{page}} sur {{totalPages}}",
+    "emptyTitle": "Aucun contact trouvé",
+    "emptySearch": "Essayez un autre terme de recherche",
+    "emptyDefault": "Ajoutez votre premier contact pour commencer",
+    "deleteConfirmTitle": "Supprimer le contact",
+    "deleteConfirmMessage": "Êtes-vous sûr de vouloir supprimer ce contact de la liste ?"
+  },
+  "groupsScreen": {
+    "member": "membre",
+    "members": "membres",
+    "emptyTitle": "Aucun groupe pour le moment",
+    "emptyText": "Créez votre premier groupe pour envoyer des messages à plusieurs contacts à la fois",
+    "basedOnList": "Basé sur la liste : {{listName}}",
+    "lastMessage": "Dernier message :",
+    "scheduledBadge": "Planifié"
+  },
+  "schemasScreen": {
+    "title": "Modèles de Contact",
+    "fieldCount": "{{count}} champs",
+    "emptyTitle": "Aucun modèle pour le moment",
+    "emptyText": "Créez votre premier modèle pour commencer à importer des contacts."
+  },
+  "createSchema": {
+    "createTitle": "Créer un Modèle",
+    "editTitle": "Modifier le Modèle",
+    "schemaNameLabel": "Nom du Modèle",
+    "schemaNamePlaceholder": "ex: Prospects Salon Auto 2024",
+    "fieldsHeader": "Champs du Contact",
+    "fieldNamePlaceholder": "Nom du champ {{index}}",
+    "typeLabel": "Type",
+    "selectFieldType": "Choisir un type de champ",
+    "optionsLabel": "Options (séparées par des virgules)",
+    "optionsPlaceholder": "ex: Option 1, Option 2",
+    "displayNameLabel": "Nom d'affichage",
+    "primaryPhoneLabel": "Tél. Principal",
+    "addFieldButton": "Ajouter un champ",
+    "cannotChangeSpecialFieldType": "Le type d'un champ de téléphone principal ou de nom d'affichage ne peut pas être modifié.",
+    "createSuccess": "Modèle créé avec succès !",
+    "updateSuccess": "Modèle mis à jour avec succès !",
+    "validation": {
+      "name": "Veuillez donner un nom à votre modèle.",
+      "fieldName": "Tous les champs doivent avoir un nom.",
+      "primaryPhone": "Un champ doit être marqué comme numéro de téléphone principal.",
+      "displayName": "Un champ doit être marqué comme nom d'affichage."
+    }
+  },
+  "importContactsScreen": {
+    "title": "Importer des Contacts",
+    "listNameLabel": "Nom de la nouvelle liste",
+    "listNamePlaceholder": "ex: Clients VIP Janvier",
+    "schemaLabel": "Modèle de contact à utiliser",
+    "schemaPlaceholder": "Sélectionner un modèle...",
+    "selectSchemaTitle": "Sélectionner un Modèle",
+    "fileLabel": "Fichier source",
+    "filePlaceholder": "Choisir un fichier (CSV, XLS, XLSX)",
+    "selectedFileLabel": "Fichier sélectionné",
+    "filePickerError": "Une erreur est survenue lors de la sélection du fichier.",
+    "createButton": "Créer la liste",
+    "createSuccess": "Succès ! La liste \"{{listName}}\" a été créée avec {{count}} contacts.",
+    "extractionInProgress": "Analyse de votre fichier en cours... Veuillez patienter.",
+    "noContactsFound": "Aucun contact valide n'a été trouvé dans le fichier selon le modèle sélectionné.",
+    "createError": "Une erreur est survenue lors de la création de la liste.",
+    "validation": {
+      "listName": "Veuillez donner un nom à votre liste.",
+      "schema": "Veuillez sélectionner un modèle de contact.",
+      "file": "Veuillez sélectionner un fichier à importer.",
+      "noInternet": "Pas de connexion internet. Veuillez vérifier votre connexion et réessayer."
+    }
+  },
+  "extractionPreview": {
+    "title": "Aperçu de l'extraction",
+    "subHeader": {
+      "one": "1 contact a été trouvé. Veuillez vérifier avant d'enregistrer.",
+      "other": "{{count}} contacts ont été trouvés. Veuillez vérifier avant d'enregistrer."
+    },
+    "saveButton": "Enregistrer la liste"
+  },
+  "contactList": {
+    "contactCount": {
+      "one": "1 contact",
+      "other": "{{count}} contacts"
+    },
+    "addContact": "Ajouter un contact",
+    "editTitle": "Modifier la liste",
+    "notFound": "Liste de contacts non trouvée.",
+    "emptyTitle": "Aucune liste de contact pour le moment",
+    "emptyContactsTitle": "Cette liste est vide",
+    "emptyText": "Créez votre première liste modèle pour commencer.",
+    "deleteConfirmTitle": "Supprimer la liste",
+    "deleteConfirmMessage": "Êtes-vous sûr de vouloir supprimer la liste \"{{listName}}\" ? Cette action est irréversible.",
+    "message": "Message"
+  },
+  "common": {
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "message": "Message",
+    "retry": "Relancer",
+    "sending": "Envoi en cours...",
+    "create": "Créer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "error": "Erreur",
+    "success": "Succès",
+    "info": "Info",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "required": "*",
+    "page": "Page {{page}} sur {{totalPages}}",
+    "pending": "En attente",
+    "sent": "Envoyé",
+    "delivered": "Délivré",
+    "failed": "Échec",
+    "scheduled": "Planifié",
+    "today": "Aujourd'hui",
+    "yesterday": "Hier",
+    "now": "Maintenant",
+    "settings": "Paramètres",
+    "confirm": "Confirmer"
+  },
+  "date": {
+    "inDays": "Dans {{count}}j",
+    "inHours": "Dans {{count}}h",
+    "inMinutes": "Dans {{count}} min",
+    "inSeconds": "Dans {{count}}s"
+  },
+  "messageDetails": {
+    "title": "Détails du message",
+    "successRate": "Taux de réussite : {{rate}}% ({{sent}}/{{total}} destinataires)",
+    "sentViaGroup": "Envoyé via {{groupName}}"
+  },
+  "smsErrors": {
+    "GENERIC_FAILURE": "Échec générique",
+    "NO_SERVICE": "Pas de service",
+    "NULL_PDU": "PDU nulle",
+    "RADIO_OFF": "Radio éteinte",
+    "LIMIT_EXCEEDED": "Limite d'envoi dépassée",
+    "FDN_CHECK_FAILURE": "Échec du test FDN",
+    "UNKNOWN": "Erreur inconnue",
+    "UNKNOWN_ERROR": "Erreur inconnue ({{code}})"
+  },
+  "modals": {
+    "addContact": "Ajouter un contact",
+    "editContact": "Modifier le contact",
+    "createGroup": "Créer un groupe",
+    "editGroup": "Modifier le groupe",
+    "groupChat": "Discussion de groupe"
+  },
+  "contactForm": {
+    "fullName": "Nom complet",
+    "fullNamePlaceholder": "John Doe",
+    "phoneNumber": "Numéro de téléphone",
+    "phoneNumberPlaceholder": "+1234567890",
+    "profession": "Profession",
+    "professionPlaceholder": "Ingénieur logiciel",
+    "city": "Ville",
+    "cityPlaceholder": "San Francisco",
+    "email": "E-mail",
+    "emailPlaceholder": "john.doe@email.com",
+    "gender": "Genre",
+    "genderPlaceholder": "Masculin / Féminin",
+    "country": "Pays",
+    "countryPlaceholder": "Pays",
+    "region": "Région",
+    "regionPlaceholder": "Région",
+    "healthDistrict": "District de santé",
+    "healthDistrictPlaceholder": "District de santé",
+    "status": "Statut",
+    "statusPlaceholder": "ex: Professionnel, Étudiant",
+    "specialty": "Spécialité TMS / Autre",
+    "specialtyPlaceholder": "Spécialité",
+    "addSuccess": "Contact ajouté avec succès !",
+    "updateSuccess": "Contact mis à jour avec succès !",
+    "validationError": "Veuillez remplir au moins le nom et le numéro de téléphone",
+    "contactNotFound": "Contact non trouvé",
+    "deleteConfirmTitle": "Supprimer le contact",
+    "deleteConfirmMessage": "Êtes-vous sûr de vouloir supprimer ce contact ?",
+    "deleteButton": "Supprimer le contact",
+    "selectOption": "Sélectionner une option...",
+    "selectOptionFor": "Sélectionner pour {{fieldName}}"
+  },
+  "groupForm": {
+    "groupName": "Nom du groupe",
+    "groupNamePlaceholder": "Projet d'équipe, Famille, etc.",
+    "selectMembers": "Sélectionner les membres",
+    "member": "{{count}} membre sélectionné",
+    "members": "{{count}} membres sélectionnés",
+    "searchPlaceholder": "Rechercher des contacts à ajouter...",
+    "noContactsFound": "Aucun contact trouvé.",
+    "createSuccess": "Groupe créé avec succès !",
+    "updateSuccess": "Groupe mis à jour avec succès !",
+    "validationNameError": "Veuillez entrer un nom de groupe",
+    "validationMemberError": "Veuillez sélectionner au moins un membre",
+    "groupNotFound": "Groupe non trouvé",
+    "selectList": "Liste de contacts de base",
+    "selectListPlaceholder": "Sélectionner une liste...",
+    "selectListTitle": "Sélectionner une liste de contacts",
+    "validationListError": "Veuillez sélectionner une liste de contacts",
+    "selectListFirst": "Veuillez d'abord sélectionner une liste de contacts pour voir les membres.",
+    "deleteConfirmTitle": "Supprimer le groupe",
+    "deleteConfirmMessage": "Êtes-vous sûr de vouloir supprimer ce groupe ?",
+    "deleteButton": "Supprimer le groupe",
+    "selectAll": "Tout sélectionner",
+    "deselectAll": "Tout désélectionner"
+  },
+  "groupChat": {
+    "groupNotFound": "Groupe non trouvé",
+    "simSelectTitle": "Choisir une carte SIM",
+    "simSelectMessage": "Quelle carte SIM voulez-vous utiliser ?",
+    "simCard": "SIM {{index}}",
+    "exactAlarmPermissionTitle": "Planification restreinte",
+    "exactAlarmPermissionMessage": "L'application doit être autorisée à programmer des alarmes précises pour envoyer des messages à une heure fixe. Voulez-vous ouvrir les paramètres ?",
+    "permissionTitle": "Permission d'envoyer des SMS",
+    "permissionMessage": "Cette application a besoin de la permission pour envoyer des SMS automatiquement.",
+    "smsError": "Veuillez entrer un message",
+    "permissionDenied": "Impossible d'envoyer des SMS sans permission.",
+    "notificationPermissionDenied": "Permission de notification refusée. Le rappel ne fonctionnera pas.",
+    "sendSuccess": "Le SMS a été mis en file d'attente pour l'envoi.",
+    "sendCancelled": "L'envoi du SMS a été annulé par l'utilisateur.",
+    "sendFailed": "Une erreur inconnue est survenue lors de l'envoi du SMS.",
+    "sendError": "Une erreur inattendue est survenue.",
+    "scheduleError": "Impossible de planifier le message",
+    "futureDateError": "La date de planification doit être dans le futur",
+    "deleteScheduledConfirm": "Voulez-vous supprimer ce message planifié ?",
+    "members": "{{count}} membres",
+    "member": "{{count}} membre",
+    "emptyTitle": "Aucun message pour l'instant",
+    "emptyText": "Envoyez votre premier message à ce groupe. Il sera envoyé par SMS à tous les membres.",
+    "inputPlaceholder": "Écrire un message...",
+    "noValidNumbers": "Aucun numéro de téléphone valide trouvé dans ce groupe.",
+    "scheduledMessages": "Messages Planifiés"
+  },
+  "premium": {
+    "title": "Passez au Premium",
+    "subtitle": "Plus de puissance pour atteindre votre audience efficacement.",
+    "subscribe": "S'abonner maintenant",
+    "cancelAnytime": "Annulez à tout moment dans les réglages du store.",
+    "tryPremium": "Essayer Premium",
+    "currentPlan": "Votre forfait actuel",
+    "free": "Forfait Gratuit",
+    "premium": "Forfait Premium",
+    "pro": "Forfait Pro / Business",
+    "currentPlanLabel": "Forfait actuel : {{plan}}",
+    "limitReachedTitle": "Limite atteinte",
+    "groupLimitReached": "Vous avez atteint le nombre maximum de groupes pour votre forfait. Passez au Premium pour en créer plus.",
+    "smsLimitReached": "Vous avez atteint votre limite de SMS. Passez au Premium pour envoyer plus de messages.",
+    "checkout": {
+      "title": "Paiement",
+      "selectPayment": "Choisir le moyen de paiement",
+      "bankTransfer": "Virement Bancaire",
+      "mobileMoney": "Paiement Mobile",
+      "mtnMoney": "MTN Mobile Money",
+      "orangeMoney": "Orange Money",
+      "instructions": "Suivez les instructions pour finaliser votre paiement.",
+      "bankInstructions": "Veuillez effectuer le virement sur le compte bancaire suivant :",
+      "accountNumber": "Numéro de compte",
+      "bankName": "Nom de la banque",
+      "accountHolder": "Titulaire du compte",
+      "bankNameValue": "UBA Cameroun",
+      "accountNumberValue": "123-45678-901234",
+      "accountHolderValue": "SMS BROADCAST APP",
+      "mobileInstructions": "Entrez votre numéro pour recevoir la demande de paiement :",
+      "phoneNumber": "Numéro de téléphone",
+      "phoneNumberPlaceholder": "670 123 456",
+      "payNow": "Payer maintenant",
+      "verifying": "Vérification du paiement...",
+      "success": "Abonnement réussi !",
+      "successSubtitle": "Bienvenue sur {{plan}} !",
+      "error": "Le paiement a échoué. Veuillez réessayer.",
+      "plan": "Forfait",
+      "amount": "Montant"
+    },
+    "plans": {
+      "free": {
+        "name": "Gratuit",
+        "price": "0 FCFA",
+        "features": [
+          "Limite de 1 groupe",
+          "200 SMS au total",
+          "Stats basiques",
+          "Publicités activées"
+        ]
+      },
+      "premium": {
+        "name": "Premium",
+        "price": "3 000 FCFA",
+        "period": "/mois",
+        "popular": "POPULAIRE",
+        "features": [
+          "Limite de 5 groupes",
+          "1000 SMS / mois",
+          "Sauvegarde automatique",
+          "Sans publicités"
+        ]
+      },
+      "pro": {
+        "name": "Pro / Business",
+        "price": "9 000 FCFA",
+        "period": "/mois",
+        "features": [
+          "Groupes illimités",
+          "SMS illimités",
+          "Analyses avancées",
+          "Support prioritaire"
+        ]
+      }
+    },
+    "ads": {
+      "sponsored": "Sponsorisé",
+      "title": "Booster votre portée avec Pro",
+      "subtitle": "Débloquez des groupes et messages illimités. Plus de pubs.",
+      "upgrade": "UPGRADER"
+    }
+  }
+}
